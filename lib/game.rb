@@ -38,7 +38,7 @@ class Game
   end
   
   def over?
-    draw? || won? ? true : false
+    (draw? || won?) ? true : false
   end
   
   def winner
