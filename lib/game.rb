@@ -49,10 +49,13 @@ class Game
   end
   
   def turn
-    puts "Place your token in positons 1-9"
-    gets.strip
-    if valid_move?(position)
-      update(position, player)
+    puts "Enter 1-9 to place your token"
+    user_input = current_player.move(board)
+    if @board.valid_move?(user_input.to_i - 1)
+      @board.update(user_input, current_player)
+    else
+      @board.display
+      turn
     end
   end
   
